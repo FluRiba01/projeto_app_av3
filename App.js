@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
+
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import Routes from './routes';
+
+import { LogBox } from "react-native";
+
+import { UsuarioProvider } from './contexts/user';
+
+
+
 
 export default function App() {
+  LogBox.ignoreLogs(["Setting a timer", "AsyncStorage has been!", "Bottom Tab"]);
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <UsuarioProvider>
+      <Routes/>
+    </UsuarioProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
